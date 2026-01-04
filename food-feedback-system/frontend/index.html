@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEALSETU - Smart Meal Monitoring Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+   <!-- Navigation -->
+<nav class="navbar">
+    <div class="container">
+        <div class="nav-brand">
+            <!-- Logo with Image -->
+            <div class="logo">
+                <img src="mslogo.png" alt="MEALSETU Logo">
+            </div>
+            <div>
+                <h1>MEALSETU</h1>
+                <p>AI that ensures food quality and care</p>
+            </div>
+        </div>
+        <div class="nav-menu" id="navMenu">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="analytics.html"><i class="fas fa-chart-bar"></i> Analytics</a>
+            <a href="report.html"><i class="fas fa-file-alt"></i> Reports</a>
+            <a href="donation.html"><i class="fas fa-hand-holding-heart"></i> Donations</a>
+        </div>
+        <button class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Welcome to Mealsetu</h2>
+                <p>Reducing food waste, feeding communities, ensuring transparency</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToFeedback()">
+                        <i class="fas fa-comment-dots"></i> Give Feedback
+                    </button>
+                    <a href="report.html" class="btn btn-secondary">
+                        <i class="fas fa-chart-line"></i> View Reports
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Stats -->
+    <section class="stats-section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 2rem; font-size: 2rem;">📊 Our Impact</h2>
+            <div class="stats-grid" id="statsGrid">
+                <div class="stat-card">
+                    <i class="fas fa-box stat-icon green"></i>
+                    <div class="stat-info">
+                        <h3 id="foodSaved">2,450 kg</h3>
+                        <p>Food Saved</p>
+                    </div>
+                    <i class="fas fa-arrow-up stat-trend"></i>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-users stat-icon blue"></i>
+                    <div class="stat-info">
+                        <h3 id="servingsDonated">1,234</h3>
+                        <p>Servings Donated</p>
+                    </div>
+                    <i class="fas fa-arrow-up stat-trend"></i>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-check-circle stat-icon purple"></i>
+                    <div class="stat-info">
+                        <h3 id="qualityScore">4.5/5</h3>
+                        <p>Quality Score</p>
+                    </div>
+                    <i class="fas fa-arrow-up stat-trend"></i>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-chart-line stat-icon orange"></i>
+                    <div class="stat-info">
+                        <h3 id="wastageReduced">30%</h3>
+                        <p>Wastage Reduced</p>
+                    </div>
+                    <i class="fas fa-arrow-up stat-trend"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="quick-actions">
+        <div class="container">
+            <h2>⚡ Quick Actions</h2>
+            <div class="actions-grid">
+                <div class="action-card" onclick="setFeedbackMode('emoji'); scrollToFeedback();">
+                    <i class="fas fa-smile"></i>
+                    <h3>Emoji Feedback</h3>
+                    <p>Rate meals with simple emojis</p>
+                </div>
+                <div class="action-card" onclick="setFeedbackMode('text'); scrollToFeedback();">
+                    <i class="fas fa-comment"></i>
+                    <h3>Text Feedback</h3>
+                    <p>Write detailed feedback about meals</p>
+                </div>
+                <div class="action-card" onclick="setFeedbackMode('voice'); scrollToFeedback();">
+                    <i class="fas fa-microphone"></i>
+                    <h3>Voice Feedback</h3>
+                    <p>Record your opinion in your language</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feedback Section -->
+    <section class="feedback-section" id="feedbackSection">
+        <div class="container">
+            <div class="feedback-card">
+                <h2>📝 Submit Your Feedback</h2>
+                <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">
+                    Your feedback helps us improve meal quality and reduce waste
+                </p>
+                
+                <!-- Feedback Mode Selector -->
+                <div class="mode-selector">
+                    <button class="mode-btn active" data-mode="emoji" onclick="setFeedbackMode('emoji')">
+                        <i class="fas fa-smile"></i> Emoji
+                    </button>
+                    <button class="mode-btn" data-mode="text" onclick="setFeedbackMode('text')">
+                        <i class="fas fa-pen"></i> Text
+                    </button>
+                    <button class="mode-btn" data-mode="voice" onclick="setFeedbackMode('voice')">
+                        <i class="fas fa-microphone"></i> Voice
+                    </button>
+                </div>
+
+                <!-- Emoji Feedback - 5 Questions -->
+                <div id="emojiFeedback" class="feedback-content active">
+                    
+                    <!-- Question 1: Overall -->
+                    <div class="question-section">
+                        <p class="feedback-question">1️⃣ How was today's meal overall?</p>
+                        <div class="emoji-grid" data-question="overall">
+                            <div class="emoji-option" data-rating="5" data-emoji="😊" onclick="selectEmojiForQuestion(this, 'overall')">
+                                <span class="emoji-icon">😊</span>
+                                <span class="emoji-label">Excellent</span>
+                            </div>
+                            <div class="emoji-option" data-rating="4" data-emoji="🙂" onclick="selectEmojiForQuestion(this, 'overall')">
+                                <span class="emoji-icon">🙂</span>
+                                <span class="emoji-label">Good</span>
+                            </div>
+                            <div class="emoji-option" data-rating="3" data-emoji="😐" onclick="selectEmojiForQuestion(this, 'overall')">
+                                <span class="emoji-icon">😐</span>
+                                <span class="emoji-label">Okay</span>
+                            </div>
+                            <div class="emoji-option" data-rating="2" data-emoji="😕" onclick="selectEmojiForQuestion(this, 'overall')">
+                                <span class="emoji-icon">😕</span>
+                                <span class="emoji-label">Poor</span>
+                            </div>
+                            <div class="emoji-option" data-rating="1" data-emoji="😢" onclick="selectEmojiForQuestion(this, 'overall')">
+                                <span class="emoji-icon">😢</span>
+                                <span class="emoji-label">Very Bad</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 2: Quality -->
+                    <div class="question-section">
+                        <p class="feedback-question">2️⃣ How was the quality of today's meal?</p>
+                        <div class="emoji-grid" data-question="quality">
+                            <div class="emoji-option" data-rating="5" data-emoji="😊" onclick="selectEmojiForQuestion(this, 'quality')">
+                                <span class="emoji-icon">😊</span>
+                                <span class="emoji-label">Excellent</span>
+                            </div>
+                            <div class="emoji-option" data-rating="4" data-emoji="🙂" onclick="selectEmojiForQuestion(this, 'quality')">
+                                <span class="emoji-icon">🙂</span>
+                                <span class="emoji-label">Good</span>
+                            </div>
+                            <div class="emoji-option" data-rating="3" data-emoji="😐" onclick="selectEmojiForQuestion(this, 'quality')">
+                                <span class="emoji-icon">😐</span>
+                                <span class="emoji-label">Okay</span>
+                            </div>
+                            <div class="emoji-option" data-rating="2" data-emoji="😕" onclick="selectEmojiForQuestion(this, 'quality')">
+                                <span class="emoji-icon">😕</span>
+                                <span class="emoji-label">Poor</span>
+                            </div>
+                            <div class="emoji-option" data-rating="1" data-emoji="😢" onclick="selectEmojiForQuestion(this, 'quality')">
+                                <span class="emoji-icon">😢</span>
+                                <span class="emoji-label">Very Bad</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 3: Hygiene -->
+                    <div class="question-section">
+                        <p class="feedback-question">3️⃣ How was the hygiene and cleanliness?</p>
+                        <div class="emoji-grid" data-question="hygiene">
+                            <div class="emoji-option" data-rating="5" data-emoji="😊" onclick="selectEmojiForQuestion(this, 'hygiene')">
+                                <span class="emoji-icon">😊</span>
+                                <span class="emoji-label">Excellent</span>
+                            </div>
+                            <div class="emoji-option" data-rating="4" data-emoji="🙂" onclick="selectEmojiForQuestion(this, 'hygiene')">
+                                <span class="emoji-icon">🙂</span>
+                                <span class="emoji-label">Good</span>
+                            </div>
+                            <div class="emoji-option" data-rating="3" data-emoji="😐" onclick="selectEmojiForQuestion(this, 'hygiene')">
+                                <span class="emoji-icon">😐</span>
+                                <span class="emoji-label">Okay</span>
+                            </div>
+                            <div class="emoji-option" data-rating="2" data-emoji="😕" onclick="selectEmojiForQuestion(this, 'hygiene')">
+                                <span class="emoji-icon">😕</span>
+                                <span class="emoji-label">Poor</span>
+                            </div>
+                            <div class="emoji-option" data-rating="1" data-emoji="😢" onclick="selectEmojiForQuestion(this, 'hygiene')">
+                                <span class="emoji-icon">😢</span>
+                                <span class="emoji-label">Very Bad</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 4: Quantity -->
+                    <div class="question-section">
+                        <p class="feedback-question">4️⃣ How was the quantity of the meal?</p>
+                        <div class="emoji-grid" data-question="quantity">
+                            <div class="emoji-option" data-rating="5" data-emoji="😊" onclick="selectEmojiForQuestion(this, 'quantity')">
+                                <span class="emoji-icon">😊</span>
+                                <span class="emoji-label">Excellent</span>
+                            </div>
+                            <div class="emoji-option" data-rating="4" data-emoji="🙂" onclick="selectEmojiForQuestion(this, 'quantity')">
+                                <span class="emoji-icon">🙂</span>
+                                <span class="emoji-label">Good</span>
+                            </div>
+                            <div class="emoji-option" data-rating="3" data-emoji="😐" onclick="selectEmojiForQuestion(this, 'quantity')">
+                                <span class="emoji-icon">😐</span>
+                                <span class="emoji-label">Okay</span>
+                            </div>
+                            <div class="emoji-option" data-rating="2" data-emoji="😕" onclick="selectEmojiForQuestion(this, 'quantity')">
+                                <span class="emoji-icon">😕</span>
+                                <span class="emoji-label">Poor</span>
+                            </div>
+                            <div class="emoji-option" data-rating="1" data-emoji="😢" onclick="selectEmojiForQuestion(this, 'quantity')">
+                                <span class="emoji-icon">😢</span>
+                                <span class="emoji-label">Very Bad</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 5: Temperature -->
+                    <div class="question-section">
+                        <p class="feedback-question">5️⃣ How was the temperature of the food?</p>
+                        <div class="emoji-grid" data-question="temperature">
+                            <div class="emoji-option" data-rating="5" data-emoji="😊" onclick="selectEmojiForQuestion(this, 'temperature')">
+                                <span class="emoji-icon">😊</span>
+                                <span class="emoji-label">Excellent</span>
+                            </div>
+                            <div class="emoji-option" data-rating="4" data-emoji="🙂" onclick="selectEmojiForQuestion(this, 'temperature')">
+                                <span class="emoji-icon">🙂</span>
+                                <span class="emoji-label">Good</span>
+                            </div>
+                            <div class="emoji-option" data-rating="3" data-emoji="😐" onclick="selectEmojiForQuestion(this, 'temperature')">
+                                <span class="emoji-icon">😐</span>
+                                <span class="emoji-label">Okay</span>
+                            </div>
+                            <div class="emoji-option" data-rating="2" data-emoji="😕" onclick="selectEmojiForQuestion(this, 'temperature')">
+                                <span class="emoji-icon">😕</span>
+                                <span class="emoji-label">Poor</span>
+                            </div>
+                            <div class="emoji-option" data-rating="1" data-emoji="😢" onclick="selectEmojiForQuestion(this, 'temperature')">
+                                <span class="emoji-icon">😢</span>
+                                <span class="emoji-label">Very Bad</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Text Feedback -->
+                <div id="textFeedback" class="feedback-content">
+                    <label for="feedbackText" style="font-size: 1.1rem; margin-bottom: 1rem; display: block;">
+                        Share your detailed feedback:
+                    </label>
+                    <textarea 
+                        id="feedbackText" 
+                        rows="6" 
+                        placeholder="Tell us about the meal quality, quantity, taste, hygiene, temperature, or any suggestions..."
+                        style="width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 10px; font-size: 1rem; font-family: inherit; resize: vertical;"
+                    ></textarea>
+                </div>
+
+                <!-- Voice Feedback -->
+                <div id="voiceFeedback" class="feedback-content">
+                    <div class="voice-recorder">
+                        <i class="fas fa-microphone recorder-icon"></i>
+                        <p>Click the button below to start recording</p>
+                        <p style="color: var(--text-secondary); margin-bottom: 2rem;">Speak in any language - Hindi, English, Gujarati, etc.</p>
+                        <button class="btn-record" onclick="alert('Voice recording feature coming soon! This will support multiple Indian languages.')">
+                            🎙️ Start Recording
+                        </button>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary btn-submit" onclick="submitFeedback()">
+                    <i class="fas fa-paper-plane"></i> Submit Feedback
+                </button>
+            </div>
+
+            <!-- Recent Feedbacks -->
+            <div class="recent-feedbacks" id="recentFeedbacks" style="display: none;">
+                <h3><i class="fas fa-history"></i> Recent Feedbacks</h3>
+                <div id="feedbacksList"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem;">🌟 Platform Features</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Analysis</h3>
+                    <p>Automatic categorization and sentiment analysis of feedback</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Demand Prediction</h3>
+                    <p>Smart algorithms predict food requirements to minimize waste</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Transparency</h3>
+                    <p>Complete meal history visible to parents and authorities</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Redistribution</h3>
+                    <p>Connect surplus food with NGOs and communities in need</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3>Offline First</h3>
+                    <p>Works without internet, syncs when connected</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>Multi-language</h3>
+                    <p>Support for Hindi, English, and regional languages</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notifications -->
+    <section class="notifications-section">
+        <div class="container">
+            <h2><i class="fas fa-bell"></i> Recent Notifications</h2>
+            <div class="notifications-list">
+                <div class="notification alert">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <div>
+                        <p><strong>Surplus food detected - 15kg available for donation</strong></p>
+                        <span>10 mins ago</span>
+                    </div>
+                </div>
+                <div class="notification success">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <p><strong>Quality score improved by 5% this week - Great job!</strong></p>
+                        <span>1 hour ago</span>
+                    </div>
+                </div>
+                <div class="notification info">
+                    <i class="fas fa-info-circle"></i>
+                    <div>
+                        <p><strong>NGO pickup scheduled for 2 PM - Feeding India</strong></p>
+                        <span>2 hours ago</span>
+                    </div>
+                </div>
+                <div class="notification success">
+                    <i class="fas fa-heart"></i>
+                    <div>
+                        <p><strong>Yesterday's surplus fed 45 people - Thank you!</strong></p>
+                        <span>Yesterday</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>MEALSETU</h3>
+                    <p>Reducing food waste, feeding communities, ensuring transparency</p>
+                    <p style="margin-top: 1rem;">
+                        <i class="fas fa-envelope"></i> contact@mealsetu.ai<br>
+                        <i class="fas fa-phone"></i> +91 98765 43210
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="analytics.html">Analytics</a>
+                    <a href="report.html">Reports</a>
+                    <a href="donation.html">Donations</a>
+                </div>
+            </div>
+            <p class="copyright">© 2025 MEALSETU. Built for making an impact. 🌱</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

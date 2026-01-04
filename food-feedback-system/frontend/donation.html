@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donations - MEALSETU</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+<nav class="navbar">
+    <div class="container">
+        <div class="nav-brand">
+            <!-- Logo with Image -->
+            <div class="logo">
+                <img src="mslogo.png" alt="MEALSETU Logo">
+            </div>
+            <div>
+                <h1>MEALSETU</h1>
+                <p>AI that ensures food quality and care</p>
+            </div>
+        </div>
+        <div class="nav-menu" id="navMenu">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="analytics.html"><i class="fas fa-chart-bar"></i> Analytics</a>
+            <a href="report.html"><i class="fas fa-file-alt"></i> Reports</a>
+            <a href="donation.html"><i class="fas fa-hand-holding-heart"></i> Donations</a>
+        </div>
+        <button class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+    <!-- Page Header -->
+    <section class="page-header donation-header">
+        <div class="container">
+            <h1><i class="fas fa-hand-holding-heart"></i> Food Redistribution & Impact</h1>
+            <p>Connecting surplus food with those in need</p>
+        </div>
+    </section>
+
+    <!-- Donation Stats -->
+    <section class="donation-stats-section">
+        <div class="container">
+            <div class="donation-stats-grid">
+                <div class="donation-stat-card">
+                    <i class="fas fa-box donation-icon"></i>
+                    <h3 id="totalKgDonated">2,450 kg</h3>
+                    <p>Food Redistributed</p>
+                    <span class="stat-period">This Month</span>
+                </div>
+                <div class="donation-stat-card">
+                    <i class="fas fa-users donation-icon"></i>
+                    <h3 id="peopleFed">5,234</h3>
+                    <p>People Fed</p>
+                    <span class="stat-period">Total Impact</span>
+                </div>
+                <div class="donation-stat-card">
+                    <i class="fas fa-hands-helping donation-icon"></i>
+                    <h3 id="totalDonations">127</h3>
+                    <p>Successful Donations</p>
+                    <span class="stat-period">Since Launch</span>
+                </div>
+                <div class="donation-stat-card">
+                    <i class="fas fa-building donation-icon"></i>
+                    <h3 id="activeNGOs">12</h3>
+                    <p>Partner NGOs</p>
+                    <span class="stat-period">Active Network</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Surplus -->
+    <section class="current-surplus-section">
+        <div class="container">
+            <h2><i class="fas fa-bell"></i> Current Surplus Alerts</h2>
+            
+            <div class="surplus-alerts" id="surplusAlerts">
+                <div class="surplus-alert-card urgent">
+                    <div class="alert-badge">🔴 Urgent</div>
+                    <div class="alert-content">
+                        <h3>15 kg Surplus Food Available</h3>
+                        <div class="alert-details">
+                            <p><i class="fas fa-utensils"></i> <strong>Meal:</strong> Lunch (Dal, Rice, Roti)</p>
+                            <p><i class="fas fa-clock"></i> <strong>Available Since:</strong> 2:30 PM Today</p>
+                            <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Main Kitchen, Block A</p>
+                            <p><i class="fas fa-users"></i> <strong>Can Feed:</strong> ~30 people</p>
+                        </div>
+                        <div class="alert-actions">
+                            <button class="btn btn-primary" onclick="claimSurplus(1)">
+                                <i class="fas fa-hand-paper"></i> Claim Donation
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-share"></i> Share Alert
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="surplus-alert-card scheduled">
+                    <div class="alert-badge">🟡 Scheduled</div>
+                    <div class="alert-content">
+                        <h3>12 kg Surplus - Pickup Scheduled</h3>
+                        <div class="alert-details">
+                            <p><i class="fas fa-utensils"></i> <strong>Meal:</strong> Breakfast (Poha, Tea)</p>
+                            <p><i class="fas fa-building"></i> <strong>NGO:</strong> Feeding India</p>
+                            <p><i class="fas fa-clock"></i> <strong>Pickup Time:</strong> 4:00 PM Today</p>
+                            <p><i class="fas fa-phone"></i> <strong>Contact:</strong> +91 98765 43210</p>
+                        </div>
+                        <div class="alert-status">
+                            <span class="status-indicator">⏳ Awaiting Pickup</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="no-surplus" id="noSurplus" style="display: none;">
+                <i class="fas fa-check-circle"></i>
+                <h3>No Surplus Currently Available</h3>
+                <p>All food is being utilized efficiently!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- NGO Partners -->
+    <section class="ngo-partners-section">
+        <div class="container">
+            <h2><i class="fas fa-handshake"></i> Our NGO Partners</h2>
+            
+            <div class="ngo-grid">
+                <div class="ngo-card">
+                    <div class="ngo-logo">FI</div>
+                    <h3>Feeding India</h3>
+                    <p class="ngo-description">Fighting hunger and food wastage across India</p>
+                    <div class="ngo-stats">
+                        <span><i class="fas fa-box"></i> 45 pickups</span>
+                        <span><i class="fas fa-users"></i> 980 fed</span>
+                    </div>
+                    <button class="btn btn-outline" onclick="contactNGO('Feeding India')">
+                        <i class="fas fa-phone"></i> Contact
+                    </button>
+                </div>
+
+                <div class="ngo-card">
+                    <div class="ngo-logo">AP</div>
+                    <h3>Akshaya Patra</h3>
+                    <p class="ngo-description">Providing meals to underprivileged children</p>
+                    <div class="ngo-stats">
+                        <span><i class="fas fa-box"></i> 38 pickups</span>
+                        <span><i class="fas fa-users"></i> 825 fed</span>
+                    </div>
+                    <button class="btn btn-outline" onclick="contactNGO('Akshaya Patra')">
+                        <i class="fas fa-phone"></i> Contact
+                    </button>
+                </div>
+
+                <div class="ngo-card">
+                    <div class="ngo-logo">RH</div>
+                    <h3>Robin Hood Army</h3>
+                    <p class="ngo-description">Redistributing excess food to the less fortunate</p>
+                    <div class="ngo-stats">
+                        <span><i class="fas fa-box"></i> 32 pickups</span>
+                        <span><i class="fas fa-users"></i> 695 fed</span>
+                    </div>
+                    <button class="btn btn-outline" onclick="contactNGO('Robin Hood Army')">
+                        <i class="fas fa-phone"></i> Contact
+                    </button>
+                </div>
+
+                <div class="ngo-card">
+                    <div class="ngo-logo">FB</div>
+                    <h3>Food Bank India</h3>
+                    <p class="ngo-description">Creating a hunger-free India</p>
+                    <div class="ngo-stats">
+                        <span><i class="fas fa-box"></i> 12 pickups</span>
+                        <span><i class="fas fa-users"></i> 268 fed</span>
+                    </div>
+                    <button class="btn btn-outline" onclick="contactNGO('Food Bank India')">
+                        <i class="fas fa-phone"></i> Contact
+                    </button>
+                </div>
+            </div>
+
+            <div class="join-network">
+                <h3>Are you an NGO?</h3>
+                <p>Join our network to receive surplus food alerts</p>
+                <button class="btn btn-primary">
+                    <i class="fas fa-user-plus"></i> Register Your NGO
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Donations -->
+    <section class="recent-donations-section">
+        <div class="container">
+            <h2><i class="fas fa-history"></i> Recent Donation History</h2>
+            
+            <div class="donations-table-card">
+                <table class="donations-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Quantity</th>
+                            <th>Meal Type</th>
+                            <th>NGO Partner</th>
+                            <th>People Fed</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="donationsTableBody">
+                        <tr>
+                            <td>Today, 3:45 PM</td>
+                            <td>15 kg</td>
+                            <td>Lunch</td>
+                            <td>Feeding India</td>
+                            <td>32</td>
+                            <td><span class="badge badge-success">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td>Yesterday, 9:15 PM</td>
+                            <td>22 kg</td>
+                            <td>Dinner</td>
+                            <td>Akshaya Patra</td>
+                            <td>45</td>
+                            <td><span class="badge badge-success">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td>Yesterday, 3:00 PM</td>
+                            <td>18 kg</td>
+                            <td>Lunch</td>
+                            <td>Robin Hood Army</td>
+                            <td>38</td>
+                            <td><span class="badge badge-success">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td>2 days ago</td>
+                            <td>20 kg</td>
+                            <td>Dinner</td>
+                            <td>Food Bank India</td>
+                            <td>42</td>
+                            <td><span class="badge badge-success">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td>3 days ago</td>
+                            <td>16 kg</td>
+                            <td>Lunch</td>
+                            <td>Feeding India</td>
+                            <td>35</td>
+                            <td><span class="badge badge-success">Completed</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Visualization -->
+    <section class="impact-section">
+        <div class="container">
+            <div class="impact-banner">
+                <h2>🌟 Our Collective Impact</h2>
+                <p>Together, we're making a difference in our community</p>
+                <div class="impact-metrics">
+                    <div class="impact-metric">
+                        <div class="metric-circle">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h4>Carbon Footprint Reduced</h4>
+                        <p class="metric-number">3.2 tons CO₂</p>
+                    </div>
+                    <div class="impact-metric">
+                        <div class="metric-circle">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <h4>Economic Value Saved</h4>
+                        <p class="metric-number">₹1,24,500</p>
+                    </div>
+                    <div class="impact-metric">
+                        <div class="metric-circle">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4>Meals Provided</h4>
+                        <p class="metric-number">5,234</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>MEALSETU</h3>
+                    <p>Reducing food waste, feeding communities, ensuring transparency</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="analytics.html">Analytics</a>
+                    <a href="report.html">Reports</a>
+                    <a href="donation.html">Donations</a>
+                </div>
+            </div>
+            <p class="copyright">© 2025 MEALSETU. Built for making an impact.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Load donation data when page loads
+        window.addEventListener('load', loadDonationData);
+    </script>
+</body>
+</html>

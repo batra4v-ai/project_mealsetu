@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MealSetu – Welcome</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #ffecd2, #fcb69f);
+        }
+
+        .container {
+            padding: 40px;
+            max-width: 700px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: #333333;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #555555;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        a.button {
+            display: inline-block;
+            text-decoration: none;
+            padding: 12px 28px;
+            background-color: #ff7a18;
+            color: #ffffff;
+            font-size: 1rem;
+            border-radius: 25px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        a.button:hover {
+            background-color: #e9650f;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            margin-top: 25px;
+            font-size: 0.85rem;
+            color: #888888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to MealSetu</h1>
+
+        <!-- Intro Video -->
+        <video autoplay muted loop playsinline style="width:100%; border-radius:14px; margin:20px 0; object-fit:cover;">
+            <source src="logo.mp4" type="video/mp4">
+        </video>
+
+        <p>
+            MealSetu helps collect feedback, analyze data, and generate simple
+            reports to improve food service and community outreach.
+        </p>
+        
+        <!-- This button connects to index.html -->
+        <a href="index.html" class="button">Get Started</a>
+
+    </div>
+</body>
+</html>

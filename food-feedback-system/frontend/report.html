@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transparency Reports - MEALSETU</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+<nav class="navbar">
+    <div class="container">
+        <div class="nav-brand">
+            <!-- Logo with Image -->
+            <div class="logo">
+                <img src="mslogo.png" alt="MEALSETU Logo">
+            </div>
+            <div>
+                <h1>MEALSETU</h1>
+                <p>AI that ensures food quality and care</p>
+            </div>
+        </div>
+        <div class="nav-menu" id="navMenu">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="analytics.html"><i class="fas fa-chart-bar"></i> Analytics</a>
+            <a href="report.html"><i class="fas fa-file-alt"></i> Reports</a>
+            <a href="donation.html"><i class="fas fa-hand-holding-heart"></i> Donations</a>
+        </div>
+        <button class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1><i class="fas fa-clipboard-list"></i> Transparency Timeline</h1>
+            <p>Complete meal history and verification records for full accountability</p>
+        </div>
+    </section>
+
+    <!-- Reports Content -->
+    <section class="reports-section">
+        <div class="container">
+            
+            <!-- Filter Options -->
+            <div class="filter-card">
+                <h3><i class="fas fa-filter"></i> Filter Reports</h3>
+                <div class="filter-options">
+                    <select class="filter-select">
+                        <option value="all">All Meals</option>
+                        <option value="breakfast">Breakfast Only</option>
+                        <option value="lunch">Lunch Only</option>
+                        <option value="dinner">Dinner Only</option>
+                    </select>
+                    <select class="filter-select">
+                        <option value="today">Today</option>
+                        <option value="week">This Week</option>
+                        <option value="month">This Month</option>
+                        <option value="all">All Time</option>
+                    </select>
+                    <button class="btn btn-secondary" onclick="alert('Exporting report to PDF... (Feature coming soon)')">
+                        <i class="fas fa-download"></i> Export PDF
+                    </button>
+                </div>
+            </div>
+
+            <!-- Meal Timeline -->
+            <div class="timeline-container" id="mealTimeline">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <h3>🍛 Lunch</h3>
+                                <p class="timeline-date">
+                                    <i class="fas fa-clock"></i> Today, 1:30 PM
+                                </p>
+                            </div>
+                            <div class="timeline-rating">
+                                <div class="rating-stars">⭐⭐⭐⭐⭐</div>
+                                <span class="rating-value">4.5</span>
+                            </div>
+                        </div>
+                        <div class="timeline-content">
+                            <p><strong><i class="fas fa-utensils"></i> Menu:</strong> Dal Tadka, Jeera Rice, Roti, Mixed Veg Sabzi</p>
+                            <p><strong><i class="fas fa-users"></i> Servings:</strong> 245 students</p>
+                            <p><strong><i class="fas fa-check-circle"></i> Quality Status:</strong> <span class="status-excellent">Excellent</span></p>
+                            <p><strong><i class="fas fa-trash-alt"></i> Wastage:</strong> 8% (below target ✓)</p>
+                            <p><strong><i class="fas fa-thermometer-half"></i> Temperature:</strong> Maintained at 65°C</p>
+                            <p><strong><i class="fas fa-user-shield"></i> Verified by:</strong> Caretaker - Mrs. Sharma</p>
+                        </div>
+                        <div class="timeline-footer">
+                            <button class="btn-link" onclick="alert('Viewing detailed feedback breakdown...')">
+                                <i class="fas fa-eye"></i> View Details
+                            </button>
+                            <button class="btn-link" onclick="alert('Opening meal photo gallery...')">
+                                <i class="fas fa-images"></i> View Photos (5)
+                            </button>
+                            <button class="btn-link" onclick="alert('Downloading meal certificate...')">
+                                <i class="fas fa-certificate"></i> Certificate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <h3>☕ Breakfast</h3>
+                                <p class="timeline-date">
+                                    <i class="fas fa-clock"></i> Today, 8:00 AM
+                                </p>
+                            </div>
+                            <div class="timeline-rating">
+                                <div class="rating-stars">⭐⭐⭐⭐</div>
+                                <span class="rating-value">4.2</span>
+                            </div>
+                        </div>
+                        <div class="timeline-content">
+                            <p><strong><i class="fas fa-utensils"></i> Menu:</strong> Poha, Masala Chai, Banana</p>
+                            <p><strong><i class="fas fa-users"></i> Servings:</strong> 198 students</p>
+                            <p><strong><i class="fas fa-check-circle"></i> Quality Status:</strong> <span class="status-good">Good</span></p>
+                            <p><strong><i class="fas fa-trash-alt"></i> Wastage:</strong> 11%</p>
+                            <p><strong><i class="fas fa-thermometer-half"></i> Temperature:</strong> Maintained at 60°C</p>
+                            <p><strong><i class="fas fa-user-shield"></i> Verified by:</strong> Caretaker - Mr. Kumar</p>
+                        </div>
+                        <div class="timeline-footer">
+                            <button class="btn-link"><i class="fas fa-eye"></i> View Details</button>
+                            <button class="btn-link"><i class="fas fa-images"></i> View Photos (3)</button>
+                            <button class="btn-link"><i class="fas fa-certificate"></i> Certificate</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <h3>🍲 Dinner</h3>
+                                <p class="timeline-date">
+                                    <i class="fas fa-clock"></i> Yesterday, 8:00 PM
+                                </p>
+                            </div>
+                            <div class="timeline-rating">
+                                <div class="rating-stars">⭐⭐⭐⭐⭐</div>
+                                <span class="rating-value">4.7</span>
+                            </div>
+                        </div>
+                        <div class="timeline-content">
+                            <p><strong><i class="fas fa-utensils"></i> Menu:</strong> Roti, Paneer Curry, Jeera Rice, Raita</p>
+                            <p><strong><i class="fas fa-users"></i> Servings:</strong> 232 students</p>
+                            <p><strong><i class="fas fa-check-circle"></i> Quality Status:</strong> <span class="status-excellent">Excellent</span></p>
+                            <p><strong><i class="fas fa-trash-alt"></i> Wastage:</strong> 7% (excellent ✓)</p>
+                            <p><strong><i class="fas fa-thermometer-half"></i> Temperature:</strong> Maintained at 68°C</p>
+                            <p><strong><i class="fas fa-user-shield"></i> Verified by:</strong> Caretaker - Mrs. Patel</p>
+                        </div>
+                        <div class="timeline-footer">
+                            <button class="btn-link"><i class="fas fa-eye"></i> View Details</button>
+                            <button class="btn-link"><i class="fas fa-images"></i> View Photos (7)</button>
+                            <button class="btn-link"><i class="fas fa-certificate"></i> Certificate</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <h3>🍛 Lunch</h3>
+                                <p class="timeline-date">
+                                    <i class="fas fa-clock"></i> Yesterday, 1:30 PM
+                                </p>
+                            </div>
+                            <div class="timeline-rating">
+                                <div class="rating-stars">⭐⭐⭐⭐</div>
+                                <span class="rating-value">4.4</span>
+                            </div>
+                        </div>
+                        <div class="timeline-content">
+                            <p><strong><i class="fas fa-utensils"></i> Menu:</strong> Rajma, Basmati Rice, Roti, Salad</p>
+                            <p><strong><i class="fas fa-users"></i> Servings:</strong> 256 students</p>
+                            <p><strong><i class="fas fa-check-circle"></i> Quality Status:</strong> <span class="status-good">Good</span></p>
+                            <p><strong><i class="fas fa-trash-alt"></i> Wastage:</strong> 10%</p>
+                            <p><strong><i class="fas fa-thermometer-half"></i> Temperature:</strong> Maintained at 66°C</p>
+                            <p><strong><i class="fas fa-user-shield"></i> Verified by:</strong> Caretaker - Mr. Singh</p>
+                        </div>
+                        <div class="timeline-footer">
+                            <button class="btn-link"><i class="fas fa-eye"></i> View Details</button>
+                            <button class="btn-link"><i class="fas fa-images"></i> View Photos (4)</button>
+                            <button class="btn-link"><i class="fas fa-certificate"></i> Certificate</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 5 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <h3>☕ Breakfast</h3>
+                                <p class="timeline-date">
+                                    <i class="fas fa-clock"></i> Yesterday, 8:00 AM
+                                </p>
+                            </div>
+                            <div class="timeline-rating">
+                                <div class="rating-stars">⭐⭐⭐⭐</div>
+                                <span class="rating-value">4.3</span>
+                            </div>
+                        </div>
+                        <div class="timeline-content">
+                            <p><strong><i class="fas fa-utensils"></i> Menu:</strong> Upma, Coffee, Orange</p>
+                            <p><strong><i class="fas fa-users"></i> Servings:</strong> 189 students</p>
+                            <p><strong><i class="fas fa-check-circle"></i> Quality Status:</strong> <span class="status-good">Good</span></p>
+                            <p><strong><i class="fas fa-trash-alt"></i> Wastage:</strong> 12%</p>
+                            <p><strong><i class="fas fa-thermometer-half"></i> Temperature:</strong> Maintained at 62°C</p>
+                            <p><strong><i class="fas fa-user-shield"></i> Verified by:</strong> Caretaker - Mrs. Reddy</p>
+                        </div>
+                        <div class="timeline-footer">
+                            <button class="btn-link"><i class="fas fa-eye"></i> View Details</button>
+                            <button class="btn-link"><i class="fas fa-images"></i> View Photos (2)</button>
+                            <button class="btn-link"><i class="fas fa-certificate"></i> Certificate</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div style="text-align: center; margin-top: 2rem;">
+                <button class="btn btn-secondary" onclick="alert('Loading more meal records...')">
+                    <i class="fas fa-plus-circle"></i> Load More Records
+                </button>
+            </div>
+
+            <!-- Surplus Food Redistribution -->
+            <div class="surplus-section">
+                <h2><i class="fas fa-hand-holding-heart"></i> Surplus Food Redistribution Tracking</h2>
+                
+                <div class="surplus-grid">
+                    <!-- Active Alert -->
+                    <div class="surplus-card alert-card">
+                        <div class="surplus-header">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <span class="surplus-badge">🔴 Active Surplus</span>
+                        </div>
+                        <div class="surplus-content">
+                            <h3>15 kg food available</h3>
+                            <p><strong><i class="fas fa-utensils"></i> Meal Type:</strong> Lunch (Dal, Rice, Roti)</p>
+                            <p><strong><i class="fas fa-clock"></i> Detected:</strong> Today, 2

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - MEALSETU</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+     <!-- Navigation -->
+<nav class="navbar">
+    <div class="container">
+        <div class="nav-brand">
+            <!-- Logo with Image -->
+            <div class="logo">
+                <img src="mslogo.png" alt="MEALSETU Logo">
+            </div>
+            <div>
+                <h1>MEALSETU</h1>
+                <p>AI that ensures food quality and care</p>
+            </div>
+        </div>
+        <div class="nav-menu" id="navMenu">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="analytics.html"><i class="fas fa-chart-bar"></i> Analytics</a>
+            <a href="report.html"><i class="fas fa-file-alt"></i> Reports</a>
+            <a href="donation.html"><i class="fas fa-hand-holding-heart"></i> Donations</a>
+        </div>
+        <button class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1><i class="fas fa-chart-line"></i> Analytics Dashboard</h1>
+            <p>Comprehensive 5-parameter feedback analysis</p>
+        </div>
+    </section>
+
+    <!-- Analytics Content -->
+    <section class="analytics-section">
+        <div class="container">
+            
+            <!-- Overall Metrics -->
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <i class="fas fa-star"></i>
+                        <h3>Overall Rating</h3>
+                    </div>
+                    <div class="metric-value">4.3</div>
+                    <div class="metric-change positive">
+                        <i class="fas fa-arrow-up"></i> +0.2 from last week
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <i class="fas fa-comments"></i>
+                        <h3>Total Responses</h3>
+                    </div>
+                    <div class="metric-value" id="totalResponses">0</div>
+                    <div class="metric-change positive">
+                        <i class="fas fa-arrow-up"></i> Growing
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Satisfaction Rate</h3>
+                    </div>
+                    <div class="metric-value">86%</div>
+                    <div class="metric-change positive">
+                        <i class="fas fa-arrow-up"></i> +4%
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <i class="fas fa-utensils"></i>
+                        <h3>Meals Analyzed</h3>
+                    </div>
+                    <div class="metric-value">356</div>
+                    <div class="metric-change positive">
+                        <i class="fas fa-arrow-up"></i> +42
+                    </div>
+                </div>
+            </div>
+
+            <h2 style="margin: 3rem 0 2rem; text-align: center;">
+                📊 5-Parameter Detailed Analysis
+            </h2>
+
+            <!-- Parameter 1: Overall -->
+            <div class="chart-card">
+                <h2><i class="fas fa-star"></i> 1. Overall Meal Rating</h2>
+                <div class="chart-container">
+                    <canvas id="overallChart"></canvas>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+                    <div style="text-align: center; padding: 1rem; background: #ecfdf5; border-radius: 10px;">
+                        <div style="font-size: 2rem; font-weight: bold; color: #10b981;">4.3</div>
+                        <div style="color: #059669;">Average Score</div>
+                    </div>
+                    <div style="text-align: center; padding: 1rem; background: #ecfdf5; border-radius: 10px;">
+                        <div style="font-size: 2rem; font-weight: bold; color: #10b981;">75%</div>
+                        <div style="color: #059669;">Excellent/Good</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Parameter 2: Quality -->
+            <div class="chart-card">
+                <h2><i class="fas fa-award"></i> 2. Food Quality Rating</h2>
+                <div class="chart-container">
+                    <canvas id="qualityChart"></canvas>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+                    <div style="text-align: center; padding: 1rem; background: #ecfdf5; border-radius: 10px;">
+                        <div style="font-size: 2rem; font-weight: bold; color: #10b981;">4.4</div>
+                        <div style="color: #059669;">Average Score</div>
+                    </div>
+                    <div style="text-align: center; padding: 1rem; background: #ecfdf5; border-radius: 10px;">
+                        <div style="font-size: 2rem; font-weight: bold; color: #10b981;">78%</div>
+                        <div style="color: #059669;">Excellent/Good</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Parameter 3: Hygiene -->
+            <div class="chart-card">
+                <h2><i class="fas fa-hands-wash"></i> 3. Hygiene & Cleanliness</h2>
+                <div class="chart-container">
+                    <canvas id="hygieneChart"></canvas>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+                    <div style="text-align: center; padding: 1rem; background: #ecfdf5; border-radius: 10px;">
+                        <div style="font-size: 2rem; font-weight: bold; color: #10b981;">4.6</div>
+                        <div style="color: #059669;">Average Score</div>
+                    </div>
+                    <div style="text-align: center; padding: 1rem; background: #ecfdf5; border-radius: 10px;">
+                        <div style="font-size: 2rem; font-weight: bold; color: #10b981;">87%</div>
+                        <div style="color: #059669;">Excellent/Good</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Parameter 4: Quantity -->
+            <div class="chart-card">
+                <h2><i class="fas fa-balance-scale"></i> 4. Food Quantity Rating</h2>
+                <div class="chart-container">
+                    <canvas id="quantityChart"></canvas>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+                    <div style="text-align: center; padding: 1rem; background: #ecfdf5; border-radius: 10px;">
+                        <div style="font-size: 2rem; font-weight: bold; color: #10b981;">4.5</div>
+                        <div style="color: #059669;">Average Score</div>
+                    </div>
+                    <div style="text-align: center; padding: 1rem; background: #ecfdf5; border-radius: 10px;">
+                        <div style="font-size: 2rem; font-weight: bold; color: #10b981;">82%</div>
+                        <div style="color: #059669;">Excellent/Good</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Parameter 5: Temperature -->
+            <div class="chart-card">
+                <h2><i class="fas fa-thermometer-half"></i> 5. Food Temperature Rating</h2>
+                <div class="chart-container">
+                    <canvas id="temperatureChart"></canvas>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+                    <div style="text-align: center; padding: 1rem; background: #ecfdf5; border-radius: 10px;">
+                        <div style="font-size: 2rem; font-weight: bold; color: #10b981;">4.1</div>
+                        <div style="color: #059669;">Average Score</div>
+                    </div>
+                    <div style="text-align: center; padding: 1rem; background: #fef3c7; border-radius: 10px;">
+                        <div style="font-size: 2rem; font-weight: bold; color: #f59e0b;">68%</div>
+                        <div style="color: #d97706;">Excellent/Good</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparative Analysis -->
+            <div class="chart-card">
+                <h2><i class="fas fa-chart-radar"></i> Comparative Analysis - All 5 Parameters</h2>
+                <div class="chart-container">
+                    <canvas id="comparativeChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Weekly Trend -->
+            <div class="chart-card">
+                <h2><i class="fas fa-chart-line"></i> Weekly Trend - All Parameters</h2>
+                <div class="chart-container">
+                    <canvas id="weeklyTrendChart"></canvas>
+                </div>
+            </div>
+
+            <!-- AI Insights -->
+            <div class="insights-card">
+                <h2><i class="fas fa-robot"></i> AI-Generated Insights</h2>
+                <div class="insights-list">
+                    <div class="insight success">
+                        <i class="fas fa-check-circle"></i>
+                        <p><strong>Hygiene Excellence:</strong> Hygiene scores remain at 4.6/5. Great work maintaining standards!</p>
+                    </div>
+                    <div class="insight success">
+                        <i class="fas fa-check-circle"></i>
+                        <p><strong>Quality Improvement:</strong> Quality ratings up by 8% this week!</p>
+                    </div>
+                    <div class="insight warning">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p><strong>Temperature Alert:</strong> 32% users report temperature issues. Check heating equipment.</p>
+                    </div>
+                    <div class="insight success">
+                        <i class="fas fa-lightbulb"></i>
+                        <p><strong>Recommendation:</strong> Quantity satisfaction is high (82%). Maintain current portions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Table -->
+            <div class="table-card">
+                <h2><i class="fas fa-table"></i> Weekly Breakdown by Parameter</h2>
+                <div class="table-responsive">
+                    <table class="analytics-table">
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Overall</th>
+                                <th>Quality</th>
+                                <th>Hygiene</th>
+                                <th>Quantity</th>
+                                <th>Temperature</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Monday</strong></td>
+                                <td><span class="badge badge-success">4.2</span></td>
+                                <td><span class="badge badge-success">4.3</span></td>
+                                <td><span class="badge badge-success">4.6</span></td>
+                                <td><span class="badge badge-success">4.5</span></td>
+                                <td><span class="badge badge-warning">4.0</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tuesday</strong></td>
+                                <td><span class="badge badge-success">4.4</span></td>
+                                <td><span class="badge badge-success">4.5</span></td>
+                                <td><span class="badge badge-success">4.7</span></td>
+                                <td><span class="badge badge-success">4.6</span></td>
+                                <td><span class="badge badge-success">4.2</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Wednesday</strong></td>
+                                <td><span class="badge badge-warning">4.1</span></td>
+                                <td><span class="badge badge-warning">4.2</span></td>
+                                <td><span class="badge badge-success">4.5</span></td>
+                                <td><span class="badge badge-success">4.4</span></td>
+                                <td><span class="badge badge-warning">3.9</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Thursday</strong></td>
+                                <td><span class="badge badge-success">4.5</span></td>
+                                <td><span class="badge badge-success">4.6</span></td>
+                                <td><span class="badge badge-success">4.8</span></td>
+                                <td><span class="badge badge-success">4.7</span></td>
+                                <td><span class="badge badge-success">4.3</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Friday</strong></td>
+                                <td><span class="badge badge-success">4.3</span></td>
+                                <td><span class="badge badge-success">4.4</span></td>
+                                <td><span class="badge badge-success">4.6</span></td>
+                                <td><span class="badge badge-success">4.5</span></td>
+                                <td><span class="badge badge-warning">4.1</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Saturday</strong></td>
+                                <td><span class="badge badge-success">4.6</span></td>
+                                <td><span class="badge badge-success">4.7</span></td>
+                                <td><span class="badge badge-success">4.9</span></td>
+                                <td><span class="badge badge-success">4.8</span></td>
+                                <td><span class="badge badge-success">4.4</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sunday</strong></td>
+                                <td><span class="badge badge-success">4.2</span></td>
+                                <td><span class="badge badge-success">4.3</span></td>
+                                <td><span class="badge badge-success">4.5</span></td>
+                                <td><span class="badge badge-success">4.4</span></td>
+                                <td><span class="badge badge-warning">4.0</span></td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr style="font-weight: bold; background: var(--light-bg);">
+                                <td>AVERAGE</td>
+                                <td><span class="badge badge-success">4.3</span></td>
+                                <td><span class="badge badge-success">4.4</span></td>
+                                <td><span class="badge badge-success">4.6</span></td>
+                                <td><span class="badge badge-success">4.5</span></td>
+                                <td><span class="badge badge-warning">4.1</span></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>MEALSETU</h3>
+                    <p>Reducing food waste, feeding communities, ensuring transparency</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="analytics.html">Analytics</a>
+                    <a href="report.html">Reports</a>
+                    <a href="donation.html">Donations</a>
+                </div>
+            </div>
+            <p class="copyright">© 2025 MEALSETU. Built for making an impact. 🌱</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        window.addEventListener('load', function() {
+            initializeEnhancedCharts();
+            
+            // Update total responses count
+            const feedbacks = JSON.parse(localStorage.getItem('mealsetu_feedbacks') || '[]');
+            document.getElementById('totalResponses').textContent = feedbacks.length;
+        });
+    </script>
+</body>
+</html>
